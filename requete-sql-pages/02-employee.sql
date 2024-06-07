@@ -4,7 +4,7 @@
 SELECT employees.firstName, employees.lastName, employees.jobTitle, employees.email, offices.city, offices.phone, offices.addressLine1, offices.country, ROUND(SUM(orderdetails.quantityOrdered * orderdetails.priceEach), 2) AS caTotal
 FROM employees
 -- Jointure avec la table offices pour obtenir les informations sur les bureaux des employés
-JOIN offices ON officeS.officeCode = employees.officeCode
+JOIN offices ON offices.officeCode = employees.officeCode
 -- Jointure avec la table customers pour obtenir les informations sur les clients
 JOIN customers ON employees.employeeNumber = customers.salesRepEmployeeNumber
 -- Jointure avec la table orders pour obtenir les informations sur les commandes des clients
@@ -27,3 +27,4 @@ JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
 WHERE employees.employeeNumber = 1370
 GROUP BY orders.orderNumber, customers.customerName, orders.orderDate, orders.requiredDate, orders.shippedDate, orders.status
 ORDER BY orders.orderNumber DESC;
+

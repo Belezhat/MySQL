@@ -14,7 +14,7 @@ LIMIT 20;
 -- Catégories (Nombre de produits par catégorie) 
 
 -- Sélectionner les lignes de produits et compter le nombre de produits dans chaque ligne 
-SELECT COUNT(*) AS productsCount
+SELECT productLine, COUNT(*) AS productsCount
 FROM products
 GROUP BY productline;
 
